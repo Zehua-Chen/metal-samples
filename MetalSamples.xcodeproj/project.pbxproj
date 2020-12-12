@@ -8,13 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		6717CCC12585623000FC3C00 /* SampleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6717CCBF2585623000FC3C00 /* SampleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6717CD042585640900FC3C00 /* MetalSamplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD032585640900FC3C00 /* MetalSamplesApp.swift */; };
+		6717CD062585640900FC3C00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD052585640900FC3C00 /* ContentView.swift */; };
+		6717CD082585640A00FC3C00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD072585640A00FC3C00 /* Assets.xcassets */; };
+		6717CD0B2585640A00FC3C00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD0A2585640A00FC3C00 /* Preview Assets.xcassets */; };
+		6717CD162585645A00FC3C00 /* SampleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717CCBC2585623000FC3C00 /* SampleKit.framework */; };
+		6717CD172585645A00FC3C00 /* SampleKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6717CCBC2585623000FC3C00 /* SampleKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6717CD182585645A00FC3C00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6717CCB12585618A00FC3C00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6717CCBB2585623000FC3C00;
+			remoteInfo = SampleKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6717CD1A2585645A00FC3C00 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6717CD172585645A00FC3C00 /* SampleKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6717CCBC2585623000FC3C00 /* SampleKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SampleKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6717CCBF2585623000FC3C00 /* SampleKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleKit.h; sourceTree = "<group>"; };
 		6717CCC02585623000FC3C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6717CCCD2585633200FC3C00 /* MetalSamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalSamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6717CD012585640900FC3C00 /* Metal Samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metal Samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6717CD032585640900FC3C00 /* MetalSamplesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalSamplesApp.swift; sourceTree = "<group>"; };
+		6717CD052585640900FC3C00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6717CD072585640A00FC3C00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6717CD0A2585640A00FC3C00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6717CD0C2585640A00FC3C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6717CD0D2585640A00FC3C00 /* MetalSamples.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetalSamples.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,10 +61,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6717CCCA2585633200FC3C00 /* Frameworks */ = {
+		6717CCFE2585640900FC3C00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD162585645A00FC3C00 /* SampleKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				6717CCBE2585623000FC3C00 /* SampleKit */,
+				6717CD022585640900FC3C00 /* MetalSamples */,
 				6717CCBD2585623000FC3C00 /* Products */,
+				6717CD152585645A00FC3C00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				6717CCBC2585623000FC3C00 /* SampleKit.framework */,
-				6717CCCD2585633200FC3C00 /* MetalSamples.app */,
+				6717CD012585640900FC3C00 /* Metal Samples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +98,34 @@
 				6717CCC02585623000FC3C00 /* Info.plist */,
 			);
 			path = SampleKit;
+			sourceTree = "<group>";
+		};
+		6717CD022585640900FC3C00 /* MetalSamples */ = {
+			isa = PBXGroup;
+			children = (
+				6717CD032585640900FC3C00 /* MetalSamplesApp.swift */,
+				6717CD052585640900FC3C00 /* ContentView.swift */,
+				6717CD072585640A00FC3C00 /* Assets.xcassets */,
+				6717CD0C2585640A00FC3C00 /* Info.plist */,
+				6717CD0D2585640A00FC3C00 /* MetalSamples.entitlements */,
+				6717CD092585640A00FC3C00 /* Preview Content */,
+			);
+			path = MetalSamples;
+			sourceTree = "<group>";
+		};
+		6717CD092585640A00FC3C00 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6717CD0A2585640A00FC3C00 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6717CD152585645A00FC3C00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,21 +160,23 @@
 			productReference = 6717CCBC2585623000FC3C00 /* SampleKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6717CCCC2585633200FC3C00 /* MetalSamples */ = {
+		6717CD002585640900FC3C00 /* MetalSamples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6717CCDA2585633500FC3C00 /* Build configuration list for PBXNativeTarget "MetalSamples" */;
+			buildConfigurationList = 6717CD0E2585640A00FC3C00 /* Build configuration list for PBXNativeTarget "MetalSamples" */;
 			buildPhases = (
-				6717CCC92585633200FC3C00 /* Sources */,
-				6717CCCA2585633200FC3C00 /* Frameworks */,
-				6717CCCB2585633200FC3C00 /* Resources */,
+				6717CCFD2585640900FC3C00 /* Sources */,
+				6717CCFE2585640900FC3C00 /* Frameworks */,
+				6717CCFF2585640900FC3C00 /* Resources */,
+				6717CD1A2585645A00FC3C00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6717CD192585645A00FC3C00 /* PBXTargetDependency */,
 			);
 			name = MetalSamples;
 			productName = MetalSamples;
-			productReference = 6717CCCD2585633200FC3C00 /* MetalSamples.app */;
+			productReference = 6717CD012585640900FC3C00 /* Metal Samples.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -123,7 +192,7 @@
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
 					};
-					6717CCCC2585633200FC3C00 = {
+					6717CD002585640900FC3C00 = {
 						CreatedOnToolsVersion = 12.2;
 					};
 				};
@@ -142,7 +211,7 @@
 			projectRoot = "";
 			targets = (
 				6717CCBB2585623000FC3C00 /* SampleKit */,
-				6717CCCC2585633200FC3C00 /* MetalSamples */,
+				6717CD002585640900FC3C00 /* MetalSamples */,
 			);
 		};
 /* End PBXProject section */
@@ -155,10 +224,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6717CCCB2585633200FC3C00 /* Resources */ = {
+		6717CCFF2585640900FC3C00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD0B2585640A00FC3C00 /* Preview Assets.xcassets in Resources */,
+				6717CD082585640A00FC3C00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,14 +243,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6717CCC92585633200FC3C00 /* Sources */ = {
+		6717CCFD2585640900FC3C00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD062585640900FC3C00 /* ContentView.swift in Sources */,
+				6717CD042585640900FC3C00 /* MetalSamplesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6717CD192585645A00FC3C00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6717CCBB2585623000FC3C00 /* SampleKit */;
+			targetProxy = 6717CD182585645A00FC3C00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6717CCB52585618A00FC3C00 /* Debug */ = {
@@ -351,7 +432,7 @@
 			};
 			name = Release;
 		};
-		6717CCDB2585633500FC3C00 /* Debug */ = {
+		6717CD0F2585640A00FC3C00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -421,8 +502,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = zehuachen.MetalSamples;
-				PRODUCT_MODULE_NAME = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Metal Samples";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -430,7 +511,7 @@
 			};
 			name = Debug;
 		};
-		6717CCDC2585633500FC3C00 /* Release */ = {
+		6717CD102585640A00FC3C00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -493,8 +574,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = zehuachen.MetalSamples;
-				PRODUCT_MODULE_NAME = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Metal Samples";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -523,11 +604,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6717CCDA2585633500FC3C00 /* Build configuration list for PBXNativeTarget "MetalSamples" */ = {
+		6717CD0E2585640A00FC3C00 /* Build configuration list for PBXNativeTarget "MetalSamples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6717CCDB2585633500FC3C00 /* Debug */,
-				6717CCDC2585633500FC3C00 /* Release */,
+				6717CD0F2585640A00FC3C00 /* Debug */,
+				6717CD102585640A00FC3C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
