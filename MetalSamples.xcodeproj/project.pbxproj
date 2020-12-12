@@ -22,6 +22,7 @@
 		6717CD442585755500FC3C00 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD432585755500FC3C00 /* Samples.swift */; };
 		6717CD4A2585787D00FC3C00 /* SampleTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD492585787D00FC3C00 /* SampleTag.swift */; };
 		6717CD5225857EB300FC3C00 /* SamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD5125857EB300FC3C00 /* SamplesView.swift */; };
+		6717CD5A258586F600FC3C00 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD59258586F600FC3C00 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		6717CD432585755500FC3C00 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		6717CD492585787D00FC3C00 /* SampleTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTag.swift; sourceTree = "<group>"; };
 		6717CD5125857EB300FC3C00 /* SamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesView.swift; sourceTree = "<group>"; };
+		6717CD59258586F600FC3C00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		6717CCB02585618A00FC3C00 = {
 			isa = PBXGroup;
 			children = (
+				6717CD59258586F600FC3C00 /* README.md */,
 				6717CCBE2585623000FC3C00 /* SampleKit */,
 				6717CD2825856AA200FC3C00 /* SampleSkybox */,
 				6717CD022585640900FC3C00 /* MetalSamples */,
@@ -313,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD5A258586F600FC3C00 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
