@@ -12,15 +12,15 @@ import SwiftUI
 
 @main
 struct MetalSamplesApp: App {
-  var samples: Samples
+  var samples: [Sample]
 
   init() {
-    samples = Samples(bundle: Bundle.main)
     let logger = Logger.sampleSystem(category: "Loading")
-
+    
     do {
-      try samples.load(logger: logger)
+      samples = try Samples.load(from: Bundle.main, logger: logger)
     } catch {
+      samples = []
       logger.error("Error: \(error.localizedDescription)")
     }
   }

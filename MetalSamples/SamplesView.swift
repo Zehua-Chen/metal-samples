@@ -10,10 +10,10 @@ import SwiftUI
 
 struct SamplesView: View {
   var tag: SampleTag
-  var samples: Samples
+  var samples: [Sample]
 
   var matchedSamples: [Sample] {
-    return samples.samples.filter { tag.contains($0.tag) }
+    return samples.filter { tag.contains($0.tag) }
   }
 
   var body: some View {

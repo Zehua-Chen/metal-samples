@@ -7,27 +7,16 @@
 
 import OSLog
 
-/// Convenience class that loads samples
+/// Convenience class for sample operations
 public class Samples {
-  /// The bundle to load samples from
-  public let bundle: Bundle
-
-  /// The loaded samples
-  public var samples: [Sample] = []
-
-  /// Create a `Samples` instance from a bundle
-  /// - Parameter bundle: the bundle
-  public init(bundle: Bundle) {
-    self.bundle = bundle
-  }
-
   /// Load samples from a bundle.
-  ///
-  /// Calling this method would reset `.samples`
-  /// - Parameter logger: the logger used to report errors
+  /// - Parameters:
+  ///   - bundle: the bundle to load samples from
+  ///   - logger: the logger used to report errors
   /// - Throws: Any errors thrown by `FileManager.contentsOfDirectory(self, ...)`
-  public func load(logger: Logger) throws {
-    samples = []
+  /// - Returns: An array of samples
+  public static func load(from bundle: Bundle, logger: Logger) throws -> [Sample] {
+    var samples: [Sample] = []
 
     let fileManager = FileManager.default
 
@@ -53,5 +42,7 @@ public class Samples {
 
       samples.append(principalClass.init())
     }
+
+    return samples
   }
 }

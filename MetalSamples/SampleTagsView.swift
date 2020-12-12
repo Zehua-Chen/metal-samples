@@ -9,7 +9,7 @@ import SampleKit
 import SwiftUI
 
 struct SampleTagsView: View {
-  var samples: Samples
+  var samples: [Sample]
 
   @State
   var selection: SampleTag? = .all
