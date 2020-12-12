@@ -8,7 +8,9 @@
 import SampleKit
 
 public class SampleSkybox: Sample {
+  public var name: String = "Skybox"
+  public var tag: SampleTag = .textures
+
   public required init() {
-    print("init sample skybox")
   }
 }

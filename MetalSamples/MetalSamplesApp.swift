@@ -27,7 +27,7 @@ struct MetalSamplesApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      SampleTagsView(samples: samples)
     }
   }
 }
