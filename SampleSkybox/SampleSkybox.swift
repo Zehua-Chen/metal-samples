@@ -6,11 +6,16 @@
 //
 
 import SampleKit
+import SwiftUI
 
 public class SampleSkybox: Sample {
   public var name: String = "Skybox"
   public var tag: SampleTag = .textures
 
   public required init() {
+  }
+
+  public var body: AnyView {
+    return AnyView(_SampleSkyboxView())
   }
 }

@@ -4,12 +4,13 @@
 //
 //  Created by Zehua Chen on 12/12/20.
 //
+import SwiftUI
 
 /// A Metal Sample
 public protocol Sample: AnyObject {
   /// Name of the sample
   ///
-  /// **Required**
+  /// **Optional**
   var name: String { get }
 
   /// Tag of a sample
@@ -17,12 +18,21 @@ public protocol Sample: AnyObject {
   /// **Optional**; default value is `.all`
   var tag: SampleTag { get }
 
+  /// Body of the sample
+  ///
+  /// **Optional**
+  var body: AnyView { get }
+
   /// Create a new sample
   init()
 }
 
-extension Sample {
+public extension Sample {
   var tag: SampleTag {
     return .all
+  }
+
+  var body: AnyView {
+    AnyView(Text("\(name) Not Implemented"))
   }
 }
