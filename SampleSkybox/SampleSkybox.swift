@@ -8,7 +8,7 @@
 import SampleKit
 import SwiftUI
 
-@objc(MSSampleSkybox)
+@objc(SampleSkybox)
 public class SampleSkybox: NSObject, Sample {
   public var name: String = "Skybox"
   public var tag: SampleTag = .textures

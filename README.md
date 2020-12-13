@@ -12,11 +12,11 @@ Metal sample codes
 
 1. Create a bundle and name it `SampleXXX`
 2. Reference but **do not embed** `SampleKit` in `SampleXXX`
-3. Create a class in `SampleXXX` named `SampleXXX` and set `MSSampleXXX` as the "Principal class" in `Info.plist`
+3. Create a class in `SampleXXX` named `SampleXXX` and set `SampleXXX` as the "Principal class" in `Info.plist`
    ```swift
    import SampleKit
    
-   @objc(MSSampleXXX)
+   @objc(SampleSkybox)
    public class SampleSkybox: Sample {
      public var name: String = "Skybox"
      public var tag: SampleTag = .textures
@@ -24,6 +24,5 @@ Metal sample codes
      public required init() {
      }
    }
-   ```
-   `MS` stands for "Metal Samples" 
+   ``` 
 4. Embed `SampleXXX` in `MetalSamples`
