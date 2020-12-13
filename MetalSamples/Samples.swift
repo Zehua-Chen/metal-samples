@@ -8,25 +8,26 @@
 import SampleKit
 import SwiftUI
 
-struct SamplesView: View {
-  var samples: [Sample]
-  
+/// Present a list of samples
+struct Samples: View {
+  var samples: [SKSample]
+
   @State
   var selection: String?
 
-  init(samples: [Sample]) {
+  init(samples: [SKSample]) {
     self.samples = samples
 
   }
 
-  func tags(for sample: Sample) -> [SampleTag] {
+  func tags(for sample: SKSample) -> [SampleTag] {
     return SampleTag.allTags.filter { $0.contains(sample.tag) }
   }
 
   var body: some View {
     NavigationView {
       List(samples, id: \.name) { sample in
-        NavigationLink(destination: SampleView(sample: sample), tag: sample.name, selection: $selection) {
+        NavigationLink(destination: Sample(sample: sample), tag: sample.name, selection: $selection) {
           VStack(alignment: .leading) {
             Text(sample.name)
               .font(.headline)

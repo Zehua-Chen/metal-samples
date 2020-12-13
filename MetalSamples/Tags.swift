@@ -8,6 +8,7 @@
 import SwiftUI
 import SampleKit
 
+/// Present a list of sample tags
 struct Tags: View {
   var tags: [SampleTag]
   
@@ -17,7 +18,7 @@ struct Tags: View {
         ForEach(tags, id: \.rawValue) { tag in
           Label(tag.label, systemImage: tag.icon)
             .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
-            .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.gray))
+            .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.accentColor))
         }
       }
     }

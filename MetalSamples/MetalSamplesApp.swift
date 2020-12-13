@@ -12,13 +12,14 @@ import SwiftUI
 
 @main
 struct MetalSamplesApp: App {
-  var samples: [Sample]
+  /// A list of samples contained in the application bundle
+  var samples: [SKSample]
 
   init() {
     let logger = Logger.sampleSystem(category: "Loading")
     
     do {
-      samples = try Samples.load(from: Bundle.main, logger: logger)
+      samples = try SKSamples.load(from: Bundle.main, logger: logger)
     } catch {
       samples = []
       logger.error("Error: \(error.localizedDescription)")
@@ -27,7 +28,7 @@ struct MetalSamplesApp: App {
 
   var body: some Scene {
     WindowGroup {
-      SamplesView(samples: samples)
+      Samples(samples: samples)
     }
     .windowToolbarStyle(UnifiedWindowToolbarStyle())
   }
