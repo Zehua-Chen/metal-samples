@@ -8,14 +8,16 @@
 import SampleKit
 import SwiftUI
 
-public class SampleSkybox: Sample {
+@objc(MSSampleSkybox)
+public class SampleSkybox: NSObject, Sample {
   public var name: String = "Skybox"
   public var tag: SampleTag = .textures
 
-  public required init() {
+  public override required init() {
+    super.init()
   }
 
   public var body: AnyView {
-    return AnyView(_SampleSkyboxView())
+    return AnyView(_SkyboxView())
   }
 }

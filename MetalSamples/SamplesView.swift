@@ -19,7 +19,7 @@ struct SamplesView: View {
   var body: some View {
     NavigationView {
       List(matchedSamples, id: \.name) { sample in
-        NavigationLink(destination: sample.body) {
+        NavigationLink(destination: SampleView(sample: sample)) {
           Text(sample.name)
         }
       }

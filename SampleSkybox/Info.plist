@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSPrincipalClass</key>
-	<string>SampleSkybox</string>
+	<string>MSSampleSkybox</string>
 </dict>
 </plist>

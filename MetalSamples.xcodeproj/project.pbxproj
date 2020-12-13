@@ -23,10 +23,13 @@
 		6717CD4A2585787D00FC3C00 /* SampleTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD492585787D00FC3C00 /* SampleTag.swift */; };
 		6717CD5225857EB300FC3C00 /* SamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD5125857EB300FC3C00 /* SamplesView.swift */; };
 		6717CD5A258586F600FC3C00 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD59258586F600FC3C00 /* README.md */; };
-		6717CD5E2585B1C200FC3C00 /* SampleSkyboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD5D2585B1C200FC3C00 /* SampleSkyboxView.swift */; };
-		6717CD642585B24B00FC3C00 /* SampleSkyboxMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD632585B24B00FC3C00 /* SampleSkyboxMetalView.swift */; };
-		6717CD6A2585B2EB00FC3C00 /* SampleSkyboxSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD692585B2EB00FC3C00 /* SampleSkyboxSettingsView.swift */; };
+		6717CD5E2585B1C200FC3C00 /* SkyboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD5D2585B1C200FC3C00 /* SkyboxView.swift */; };
+		6717CD642585B24B00FC3C00 /* SkyboxMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD632585B24B00FC3C00 /* SkyboxMetalView.swift */; };
+		6717CD6A2585B2EB00FC3C00 /* SkyboxSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD692585B2EB00FC3C00 /* SkyboxSettingsView.swift */; };
 		6717CD732585B57800FC3C00 /* ShadingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD722585B57800FC3C00 /* ShadingMethod.swift */; };
+		6717CD7B2585BA7D00FC3C00 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */; };
+		6717CD862585BD0A00FC3C00 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD852585BD0A00FC3C00 /* SampleView.swift */; };
+		6717CD8A2585BEE000FC3C00 /* SamplePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD892585BEE000FC3C00 /* SamplePresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,10 +102,13 @@
 		6717CD492585787D00FC3C00 /* SampleTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTag.swift; sourceTree = "<group>"; };
 		6717CD5125857EB300FC3C00 /* SamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesView.swift; sourceTree = "<group>"; };
 		6717CD59258586F600FC3C00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		6717CD5D2585B1C200FC3C00 /* SampleSkyboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSkyboxView.swift; sourceTree = "<group>"; };
-		6717CD632585B24B00FC3C00 /* SampleSkyboxMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSkyboxMetalView.swift; sourceTree = "<group>"; };
-		6717CD692585B2EB00FC3C00 /* SampleSkyboxSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSkyboxSettingsView.swift; sourceTree = "<group>"; };
+		6717CD5D2585B1C200FC3C00 /* SkyboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxView.swift; sourceTree = "<group>"; };
+		6717CD632585B24B00FC3C00 /* SkyboxMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxMetalView.swift; sourceTree = "<group>"; };
+		6717CD692585B2EB00FC3C00 /* SkyboxSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxSettingsView.swift; sourceTree = "<group>"; };
 		6717CD722585B57800FC3C00 /* ShadingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadingMethod.swift; sourceTree = "<group>"; };
+		6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		6717CD852585BD0A00FC3C00 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		6717CD892585BEE000FC3C00 /* SamplePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,7 @@
 				6717CD1C2585655D00FC3C00 /* Sample.swift */,
 				6717CD492585787D00FC3C00 /* SampleTag.swift */,
 				6717CD432585755500FC3C00 /* Samples.swift */,
+				6717CD892585BEE000FC3C00 /* SamplePresentation.swift */,
 				6717CD1F258567AF00FC3C00 /* Logger+Loggers.swift */,
 				6717CCC02585623000FC3C00 /* Info.plist */,
 			);
@@ -172,6 +179,7 @@
 			children = (
 				6717CD032585640900FC3C00 /* MetalSamplesApp.swift */,
 				6717CD5125857EB300FC3C00 /* SamplesView.swift */,
+				6717CD852585BD0A00FC3C00 /* SampleView.swift */,
 				6717CD052585640900FC3C00 /* SampleTagsView.swift */,
 				6717CD072585640A00FC3C00 /* Assets.xcassets */,
 				6717CD0C2585640A00FC3C00 /* Info.plist */,
@@ -199,23 +207,16 @@
 		6717CD2825856AA200FC3C00 /* SampleSkybox */ = {
 			isa = PBXGroup;
 			children = (
-				6717CD6F2585B32300FC3C00 /* Views */,
 				6717CD2925856AA200FC3C00 /* Info.plist */,
 				6717CD3D25856ADE00FC3C00 /* SampleSkybox.swift */,
 				6717CD722585B57800FC3C00 /* ShadingMethod.swift */,
+				6717CD5D2585B1C200FC3C00 /* SkyboxView.swift */,
+				6717CD692585B2EB00FC3C00 /* SkyboxSettingsView.swift */,
+				6717CD632585B24B00FC3C00 /* SkyboxMetalView.swift */,
 				6717CD3C25856ADE00FC3C00 /* SampleSkybox-Bridging-Header.h */,
+				6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */,
 			);
 			path = SampleSkybox;
-			sourceTree = "<group>";
-		};
-		6717CD6F2585B32300FC3C00 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				6717CD5D2585B1C200FC3C00 /* SampleSkyboxView.swift */,
-				6717CD692585B2EB00FC3C00 /* SampleSkyboxSettingsView.swift */,
-				6717CD632585B24B00FC3C00 /* SampleSkyboxMetalView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD7B2585BA7D00FC3C00 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD8A2585BEE000FC3C00 /* SamplePresentation.swift in Sources */,
 				6717CD4A2585787D00FC3C00 /* SampleTag.swift in Sources */,
 				6717CD1D2585655D00FC3C00 /* Sample.swift in Sources */,
 				6717CD20258567AF00FC3C00 /* Logger+Loggers.swift in Sources */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6717CD862585BD0A00FC3C00 /* SampleView.swift in Sources */,
 				6717CD062585640900FC3C00 /* SampleTagsView.swift in Sources */,
 				6717CD042585640900FC3C00 /* MetalSamplesApp.swift in Sources */,
 				6717CD5225857EB300FC3C00 /* SamplesView.swift in Sources */,
@@ -384,10 +388,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6717CD5E2585B1C200FC3C00 /* SampleSkyboxView.swift in Sources */,
-				6717CD642585B24B00FC3C00 /* SampleSkyboxMetalView.swift in Sources */,
+				6717CD5E2585B1C200FC3C00 /* SkyboxView.swift in Sources */,
+				6717CD642585B24B00FC3C00 /* SkyboxMetalView.swift in Sources */,
 				6717CD3E25856ADE00FC3C00 /* SampleSkybox.swift in Sources */,
-				6717CD6A2585B2EB00FC3C00 /* SampleSkyboxSettingsView.swift in Sources */,
+				6717CD6A2585B2EB00FC3C00 /* SkyboxSettingsView.swift in Sources */,
 				6717CD732585B57800FC3C00 /* ShadingMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

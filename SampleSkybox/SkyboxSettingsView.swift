@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal struct _SampleSkyboxSettingsView: View {
+internal struct _SkyboxSettingsView: View {
   @Binding
   var shadingMethod: _ShadingMethod
   
