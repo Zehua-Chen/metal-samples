@@ -27,7 +27,8 @@ struct MetalSamplesApp: App {
 
   var body: some Scene {
     WindowGroup {
-      SampleTagsView(samples: samples)
+      SamplesView(samples: samples)
     }
+    .windowToolbarStyle(UnifiedWindowToolbarStyle())
   }
 }

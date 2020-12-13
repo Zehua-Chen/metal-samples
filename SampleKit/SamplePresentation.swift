@@ -20,13 +20,14 @@ public struct SamplePresentation<OutputView: View, SettingsView: View>: View {
     List {
       Section(header: Text("Output")) {
         output()
-          .frame(minWidth: 400, minHeight: 400)
+          .frame(minHeight: 400)
       }
 
       Section(header: Text("Settings")) {
         settings()
       }
     }
+    .frame(minWidth: 400)
   }
 }
 

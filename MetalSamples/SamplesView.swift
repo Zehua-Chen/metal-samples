@@ -9,20 +9,38 @@ import SampleKit
 import SwiftUI
 
 struct SamplesView: View {
-  var tag: SampleTag
   var samples: [Sample]
+  
+  @State
+  var selection: String?
 
-  var matchedSamples: [Sample] {
-    return samples.filter { tag.contains($0.tag) }
+  init(samples: [Sample]) {
+    self.samples = samples
+
+  }
+
+  func tags(for sample: Sample) -> [SampleTag] {
+    return SampleTag.allTags.filter { $0.contains(sample.tag) }
   }
 
   var body: some View {
     NavigationView {
-      List(matchedSamples, id: \.name) { sample in
-        NavigationLink(destination: SampleView(sample: sample)) {
-          Text(sample.name)
+      List(samples, id: \.name) { sample in
+        NavigationLink(destination: SampleView(sample: sample), tag: sample.name, selection: $selection) {
+          VStack(alignment: .leading) {
+            Text(sample.name)
+              .font(.headline)
+
+            Tags(tags: tags(for: sample))
+          }
+          .padding(4)
         }
       }
+      .listStyle(SidebarListStyle())
+      .frame(minWidth: 250)
+    }
+    .onAppear() {
+      selection = self.samples.first?.name
     }
   }
 }
