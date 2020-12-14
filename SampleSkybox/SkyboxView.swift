@@ -18,15 +18,6 @@ internal struct _SkyboxView: View {
     } settings: {
       _SkyboxSettingsView(shadingMethod: $shadingMethod)
     }
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        Button {
-          print("play")
-        } label: {
-          Image(systemName: "play.fill")
-        }
-      }
-    }
   }
 }
 
