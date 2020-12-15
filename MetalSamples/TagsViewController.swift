@@ -8,7 +8,7 @@
 import Cocoa
 import SampleKit
 
-fileprivate enum _Section: Hashable {
+private enum _Section: Hashable {
   case all
 }
 
@@ -51,4 +51,3 @@ class TagsViewController: NSViewController, NSTableViewDelegate {
     }
   }
 }
-

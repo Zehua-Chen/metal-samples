@@ -9,7 +9,7 @@ import AppKit
 import Combine
 import SampleKit
 
-fileprivate enum _Section: Hashable {
+private enum _Section: Hashable {
   case all
 }
 
@@ -19,7 +19,7 @@ class SamplesViewController: NSViewController, NSTableViewDelegate {
 
   @IBOutlet
   weak var tableView: NSTableView!
-  
+
   fileprivate weak var _appDelegate: AppDelegate!
   fileprivate var _dataSource: _DataSource!
   fileprivate var _cancellables: Set<AnyCancellable> = []
@@ -28,7 +28,7 @@ class SamplesViewController: NSViewController, NSTableViewDelegate {
     super.viewDidLoad()
     // Do view setup here.
     view.widthAnchor.constraint(greaterThanOrEqualToConstant: 280).isActive = true
-    
+
     _dataSource = _DataSource(tableView: tableView) { tableView, column, row, sample in
       let view = tableView.makeView(withIdentifier: .sampleCellView, owner: nil) as! SampleCellView
       view.textField!.stringValue = sample.name

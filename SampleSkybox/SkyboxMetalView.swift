@@ -20,7 +20,7 @@ internal struct _SkyboxMetalView: NSViewControllerRepresentable {
   func makeNSViewController(context: Context) -> _SkyboxMetalViewController {
     let bundle = Bundle(for: _SkyboxMetalViewController.self)
     let storyboard = NSStoryboard(name: "Storyboard", bundle: bundle)
-    
+
     return storyboard.instantiateInitialController() as! _SkyboxMetalViewController
   }
 

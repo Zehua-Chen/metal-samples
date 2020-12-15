@@ -6,9 +6,9 @@
 //
 
 import AppKit
-import SwiftUI
 import Combine
 import SampleKit
+import SwiftUI
 
 class SampleViewController: NSViewController {
 
@@ -27,7 +27,7 @@ class SampleViewController: NSViewController {
       if sample === _activeSample {
         return
       }
-      
+
       view.window?.subtitle = sample?.name ?? ""
 
       let view = sample?.body ?? AnyView(Text("Sample"))

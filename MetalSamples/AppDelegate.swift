@@ -5,16 +5,16 @@
 //  Created by Zehua Chen on 12/14/20.
 //
 
-import OSLog
 import AppKit
-import SampleKit
 import Combine
+import OSLog
+import SampleKit
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
   var samplesFilter: SampleFilter = SampleFilter()
   var sample: CurrentValueSubject<Sample?, Never> = CurrentValueSubject<Sample?, Never>(nil)
-  
+
   lazy var samples: [Sample] = {
     let logger = Logger.sampleSystem(for: "Loading")
 
@@ -29,9 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ notification: Notification) {
   }
-  
+
   func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
     return true
   }
 }
-
