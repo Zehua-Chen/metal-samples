@@ -33,6 +33,7 @@
 		67BFEF21258848B70018B186 /* SampleFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFEF20258848B70018B186 /* SampleFilter.swift */; };
 		67BFEF2725884A730018B186 /* SampleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFEF2625884A730018B186 /* SampleCellView.swift */; };
 		67BFEF31258856180018B186 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFEF30258856180018B186 /* SampleViewController.swift */; };
+		67BFEF3525885CC30018B186 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFEF3425885CC30018B186 /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		67BFEF20258848B70018B186 /* SampleFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFilter.swift; sourceTree = "<group>"; };
 		67BFEF2625884A730018B186 /* SampleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCellView.swift; sourceTree = "<group>"; };
 		67BFEF30258856180018B186 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		67BFEF3425885CC30018B186 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				67BFEEEB258835C10018B186 /* TagsViewController.swift */,
 				67BFEF1C258845A90018B186 /* SamplesViewController.swift */,
 				67BFEF30258856180018B186 /* SampleViewController.swift */,
+				67BFEF3425885CC30018B186 /* WindowController.swift */,
 				67BFEEED258835C20018B186 /* Assets.xcassets */,
 				67BFEEEF258835C20018B186 /* Main.storyboard */,
 				67BFEEF2258835C20018B186 /* Info.plist */,
@@ -403,6 +406,7 @@
 				67BFEEEC258835C10018B186 /* TagsViewController.swift in Sources */,
 				67BFEF1D258845A90018B186 /* SamplesViewController.swift in Sources */,
 				67BFEEEA258835C10018B186 /* AppDelegate.swift in Sources */,
+				67BFEF3525885CC30018B186 /* WindowController.swift in Sources */,
 				67BFEF21258848B70018B186 /* SampleFilter.swift in Sources */,
 				67BFEF31258856180018B186 /* SampleViewController.swift in Sources */,
 			);

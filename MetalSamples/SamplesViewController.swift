@@ -27,6 +27,8 @@ class SamplesViewController: NSViewController, NSTableViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do view setup here.
+    view.widthAnchor.constraint(greaterThanOrEqualToConstant: 280).isActive = true
+    
     _dataSource = _DataSource(tableView: tableView) { tableView, column, row, sample in
       let view = tableView.makeView(withIdentifier: .sampleCellView, owner: nil) as! SampleCellView
       view.textField!.stringValue = sample.name

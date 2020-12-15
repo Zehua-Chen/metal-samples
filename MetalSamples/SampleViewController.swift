@@ -20,6 +20,8 @@ class SampleViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    view.widthAnchor.constraint(greaterThanOrEqualToConstant: 450).isActive = true
+
     _appDelegate = (NSApplication.shared.delegate as! AppDelegate)
     _appDelegate.sample.sink { [unowned self] sample in
       if sample === _activeSample {

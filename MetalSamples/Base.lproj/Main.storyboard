@@ -422,7 +422,7 @@
         <!--Window Controller-->
         <scene sceneID="y5U-Bb-KXb">
             <objects>
-                <windowController id="7L3-g7-R5J" sceneMemberID="viewController">
+                <windowController id="7L3-g7-R5J" customClass="WindowController" customModule="MetalSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Metal Samples" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="zvG-zx-xmu">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -584,23 +584,23 @@
             <objects>
                 <viewController id="5a7-p4-KyI" customClass="SamplesViewController" customModule="MetalSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GHC-Mi-Gt0">
-                        <rect key="frame" x="0.0" y="0.0" width="287" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-dC-k0D">
-                                <rect key="frame" x="0.0" y="0.0" width="287" height="348"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="348"/>
                                 <clipView key="contentView" id="ojL-A5-oAr">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="348"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="348"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="inset" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Dth-eZ-zmf">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="348"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="348"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="255" minWidth="40" maxWidth="1000" id="xH2-7h-D9I">
+                                                <tableColumn width="248" minWidth="40" maxWidth="1000" id="xH2-7h-D9I">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -613,11 +613,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="SampleCellView" id="mIw-7D-lil" customClass="SampleCellView" customModule="MetalSamples" customModuleProvider="target">
-                                                            <rect key="frame" x="18" y="0.0" width="250" height="24"/>
+                                                            <rect key="frame" x="18" y="0.0" width="243" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-xP-nOA">
-                                                                    <rect key="frame" x="-2" y="4" width="254" height="16"/>
+                                                                    <rect key="frame" x="-2" y="4" width="247" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="V7M-Oc-1qK">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -642,7 +642,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="xeO-Gb-2lC">
-                                    <rect key="frame" x="0.0" y="332" width="278" height="16"/>
+                                    <rect key="frame" x="0.0" y="332" width="268" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="dSa-7c-t9X">
@@ -666,7 +666,7 @@
                 </viewController>
                 <customObject id="xSy-mk-E0z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91.5" y="1477"/>
+            <point key="canvasLocation" x="91" y="1477"/>
         </scene>
         <!--Sample View Controller-->
         <scene sceneID="cax-Gm-x2a">
