@@ -8,7 +8,6 @@
 import SampleKit
 import SwiftUI
 
-@objc(SampleSkybox)
 public class SampleSkybox: Sample {
   public override var name: String {
     return "Skybox"
