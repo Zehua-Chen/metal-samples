@@ -9,10 +9,18 @@ import AppKit
 
 extension NSToolbarItem.Identifier {
   static var secondThirdSectionSeparator: Self = .init("secondThirdSectionSeparator")
+  static var search: Self = .init("search")
 }
 
 class WindowController: NSWindowController, NSToolbarDelegate {
   var secondThirdSectionSeparator: NSTrackingSeparatorToolbarItem!
+  var search: NSSearchToolbarItem!
+  let toolbarItemIdentifiers: [NSToolbarItem.Identifier] = [
+    .toggleSidebar,
+    .secondThirdSectionSeparator,
+    .flexibleSpace,
+    .search,
+  ]
 
   override func windowDidLoad() {
     super.windowDidLoad()
@@ -22,7 +30,10 @@ class WindowController: NSWindowController, NSToolbarDelegate {
       splitView: window!.contentView!.subviews[0] as! NSSplitView,
       dividerIndex: 1)
 
+    search = NSSearchToolbarItem(itemIdentifier: .search)
+
     let toolbar = NSToolbar(identifier: "MainToolbar")
+
     toolbar.sizeMode = .regular
     toolbar.displayMode = .iconOnly
     toolbar.delegate = self
@@ -33,24 +44,23 @@ class WindowController: NSWindowController, NSToolbarDelegate {
   }
 
   func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-    return [
-      .toggleSidebar,
-      .secondThirdSectionSeparator
-    ]
+    return toolbarItemIdentifiers
   }
 
   func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-    return [
-      .toggleSidebar,
-      .secondThirdSectionSeparator
-    ]
+    return toolbarItemIdentifiers
   }
 
-  func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
-    print(#function)
+  func toolbar(
+    _ toolbar: NSToolbar,
+    itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
+    willBeInsertedIntoToolbar flag: Bool
+  ) -> NSToolbarItem? {
     switch itemIdentifier {
     case .secondThirdSectionSeparator:
       return secondThirdSectionSeparator
+    case .search:
+      return search
     default:
       return nil
     }
