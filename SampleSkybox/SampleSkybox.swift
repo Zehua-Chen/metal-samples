@@ -9,15 +9,16 @@ import SampleKit
 import SwiftUI
 
 @objc(SampleSkybox)
-public class SampleSkybox: NSObject, Sample {
-  public var name: String = "Skybox"
-  public var tag: SampleTag = .textures
-
-  public override required init() {
-    super.init()
+public class SampleSkybox: Sample {
+  public override var name: String {
+    return "Skybox"
   }
 
-  public var body: AnyView {
+  public override var tag: SampleTag {
+    return .textures
+  }
+
+  public override var body: AnyView {
     return AnyView(_SkyboxView())
   }
 }

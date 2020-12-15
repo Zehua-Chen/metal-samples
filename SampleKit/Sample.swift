@@ -7,32 +7,36 @@
 import SwiftUI
 
 /// A Metal Sample
-public protocol Sample: AnyObject {
+open class Sample: NSObject {
   /// Name of the sample
   ///
   /// **Optional**
-  var name: String { get }
+  open var name: String { return "?" }
 
   /// Tag of a sample
   ///
   /// **Optional**; default value is `.all`
-  var tag: SampleTag { get }
+  open var tag: SampleTag { return .all }
 
   /// Body of the sample
   ///
   /// **Optional**
-  var body: AnyView { get }
+  open var body: AnyView { return AnyView(Text("Not Implemented")) }
 
   /// Create a new sample
-  init()
-}
-
-public extension Sample {
-  var tag: SampleTag {
-    return .all
+  public required override init() {
+    super.init()
   }
 
-  var body: AnyView {
-    AnyView(Text("\(name) Not Implemented"))
+  public override var hash: Int {
+    return name.hashValue
+  }
+
+  open override func isEqual(to object: Any?) -> Bool {
+    if let anotherSample = object as? Sample {
+      return anotherSample.name == name
+    }
+
+    return false
   }
 }

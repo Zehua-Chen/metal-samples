@@ -10,16 +10,13 @@ public struct SampleTag: OptionSet, Hashable {
   public typealias RawValue = Int
 
   /// The tag that includes all of the other tags
-  public static let all: SampleTag = SampleTag(
-    rawValue: SampleTag.textures.rawValue | SampleTag.shading.rawValue,
-    label: "All",
-    icon: "list.bullet")
+  public static let all: SampleTag = [.textures, .shading]
 
   /// The tag that includes samples that operate on textures
-  public static let textures: SampleTag = .init(rawValue: 1, label: "Textures", icon: "photo")
+  public static let textures: SampleTag = .init(rawValue: 1)
 
   /// The tag that includes shading operations
-  public static let shading: SampleTag = .init(rawValue: 2, label: "Shading", icon: "rays")
+  public static let shading: SampleTag = .init(rawValue: 2)
 
   /// A list of all the tags
   public static let allTags: [SampleTag] = [
@@ -28,24 +25,36 @@ public struct SampleTag: OptionSet, Hashable {
     .shading,
   ]
 
+  public static func label(for tag: SampleTag) -> String {
+    switch tag {
+    case .all:
+      return "All"
+    case .shading:
+      return "Shading"
+    case .textures:
+      return "Textures"
+    default:
+      return "?"
+    }
+  }
+
+  public static func icon(for tag: SampleTag) -> String {
+    switch tag {
+    case .all:
+      return "list.bullet"
+    case .shading:
+      return "rays"
+    case .textures:
+      return "photo"
+    default:
+      return "?"
+    }
+  }
+
   /// Raw value of a tag
   public let rawValue: Int
 
-  /// Label of the tag
-  public let label: String
-
-  /// SF Symbol name of the icon image
-  public let icon: String
-
   public init(rawValue: Int) {
     self.rawValue = rawValue
-    self.label = "Unknown"
-    self.icon = "list.bullet"
-  }
-
-  public init(rawValue: Int, label: String, icon: String) {
-    self.rawValue = rawValue
-    self.label = label
-    self.icon = icon
   }
 }
