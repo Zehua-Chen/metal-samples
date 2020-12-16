@@ -21,6 +21,7 @@ class SampleViewController: NSViewController {
     super.viewDidLoad()
 
     view.widthAnchor.constraint(greaterThanOrEqualToConstant: 450).isActive = true
+    view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
 
     _appDelegate = (NSApplication.shared.delegate as! AppDelegate)
     _appDelegate.sample.sink { [unowned self] sample in
@@ -30,8 +31,8 @@ class SampleViewController: NSViewController {
 
       view.window?.subtitle = sample?.name ?? ""
 
-      let view = sample?.body ?? AnyView(Text("Sample"))
-      _updateContent(body: view)
+      let body = sample?.body ?? AnyView(Text("Sample"))
+      _updateContent(body: body)
 
       _activeSample = sample
     }
@@ -39,20 +40,23 @@ class SampleViewController: NSViewController {
   }
 
   fileprivate func _updateContent(body: AnyView) {
-    children = []
-    view.subviews = []
+    for subview in view.subviews {
+      subview.removeFromSuperview()
+    }
 
+    children = []
+
+    // Create hosting view/view controller and add it as a child
     let hostingController = NSHostingController<AnyView>(rootView: body)
     addChild(hostingController)
 
     _hostingController = hostingController
 
     let hostingView = hostingController.view
-    self.view.addSubview(hostingView)
+    view.addSubview(hostingView)
 
+    // Configure hostingView's constraints
     hostingView.translatesAutoresizingMaskIntoConstraints = false
-    hostingView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
-    hostingView.widthAnchor.constraint(greaterThanOrEqualToConstant: 450).isActive = true
 
     let safeArea = view.safeAreaLayoutGuide
 
