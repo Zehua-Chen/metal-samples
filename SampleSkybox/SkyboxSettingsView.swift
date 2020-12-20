@@ -16,9 +16,12 @@ internal struct _SkyboxSettingsView: View {
 
   var body: some View {
     Form {
-      Picker("Shading Method", selection: $shadingMethod) {
-        Text("Reflection").tag(_ShadingMethod.reflection)
-        Text("Refraction").tag(_ShadingMethod.refraction)
+      Picker(
+        selection: $shadingMethod,
+        label: Text("shading_method", bundle: SampleSkybox._bundle)
+      ) {
+        Text("shading_reflection", bundle: SampleSkybox._bundle).tag(_ShadingMethod.reflection)
+        Text("shading_refraction", bundle: SampleSkybox._bundle).tag(_ShadingMethod.refraction)
       }
 
       Slider(
@@ -27,14 +30,17 @@ internal struct _SkyboxSettingsView: View {
         minimumValueLabel: Text("0"),
         maximumValueLabel: Text("360")
       ) {
-        Text("Rotation (Y)")
+        Text("rotation_y", bundle: SampleSkybox._bundle)
       }
     }
   }
 }
 
-//struct _SampleSkyboxSettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        _SampleSkyboxSettingsView()
-//    }
+//struct _SkyboxSettingsView_Previews: PreviewProvider {
+//  @State
+//  static var shadingMethod: _ShadingMethod = .refraction
+//
+//  static var previews: some View {
+//    _SkyboxSettingsView(shadingMethod: $shadingMethod)
+//  }
 //}

@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  MetalSamples
+
+  Created by Zehua Chen on 12/19/20.
+  
+*/
+
+"tag_all" = "All";
+"tag_shading" = "Shading";
+"tag_textures" = "Textures";
+
+"presentation_output" = "Output";
+"presentation_settings" = "Settings";

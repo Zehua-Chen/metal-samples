@@ -26,13 +26,18 @@ public struct SampleTag: OptionSet, Hashable {
   ]
 
   public static func label(for tag: SampleTag) -> String {
+    func localized(key: String) -> String {
+      return NSLocalizedString(
+        key, tableName: nil, bundle: Sample._bundle, value: key, comment: key)
+    }
+
     switch tag {
     case .all:
-      return "All"
+      return localized(key: "tag_all")
     case .shading:
-      return "Shading"
+      return localized(key: "tag_shading")
     case .textures:
-      return "Textures"
+      return localized(key: "tag_textures")
     default:
       return "?"
     }

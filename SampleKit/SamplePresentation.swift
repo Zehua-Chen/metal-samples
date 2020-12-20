@@ -18,12 +18,12 @@ public struct SamplePresentation<OutputView: View, SettingsView: View>: View {
 
   public var body: some View {
     List {
-      Section(header: Text("Output")) {
+      Section(header: Text("presentation_output", bundle: Sample._bundle)) {
         output()
           .frame(minHeight: 400)
       }
 
-      Section(header: Text("Settings")) {
+      Section(header: Text("presentation_settings", bundle: Sample._bundle)) {
         settings()
       }
     }

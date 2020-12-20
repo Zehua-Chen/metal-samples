@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MetalSamples
+
+  Created by Zehua Chen on 12/19/20.
+  
+*/
+"rotation_y" = "旋转 (Y)";
+"skybox" = "天空盒";
+
+"shading_method" = "Shading Method";
+"shading_reflection" = "Reflection";
+"shading_refraction" = "Refraction";
