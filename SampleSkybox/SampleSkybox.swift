@@ -21,6 +21,8 @@ public class SampleSkybox: Sample {
   }
 
   public override var tag: SampleTag {
+//    let bundle = SampleSkybox._bundle
+//    print(SampleSkybox._bundle.url(forResource: nil, withExtension: "obj"))
     return .textures
   }
 
