@@ -20,6 +20,9 @@
 		6717CD732585B57800FC3C00 /* ShadingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD722585B57800FC3C00 /* ShadingMethod.swift */; };
 		6717CD7B2585BA7D00FC3C00 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */; };
 		6717CD8A2585BEE000FC3C00 /* SamplePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD892585BEE000FC3C00 /* SamplePresentation.swift */; };
+		676C6443259590A900FC1865 /* SkyboxMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676C6442259590A900FC1865 /* SkyboxMetalViewController.swift */; };
+		676C644A259594A900FC1865 /* reflection.metal in Sources */ = {isa = PBXBuildFile; fileRef = 676C6449259594A900FC1865 /* reflection.metal */; };
+		676C64502595951E00FC1865 /* Monkey.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 676C644F2595951E00FC1865 /* Monkey.mtl */; };
 		67A421A0258DDABD006421C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67A4219E258DDABD006421C2 /* Localizable.strings */; };
 		67A421B1258DE3AF006421C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67A421B3258DE3AF006421C2 /* Localizable.strings */; };
 		67A421B825900C7B006421C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67A421B725900C7B006421C2 /* Assets.xcassets */; };
@@ -107,6 +110,9 @@
 		6717CD722585B57800FC3C00 /* ShadingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadingMethod.swift; sourceTree = "<group>"; };
 		6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6717CD892585BEE000FC3C00 /* SamplePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePresentation.swift; sourceTree = "<group>"; };
+		676C6442259590A900FC1865 /* SkyboxMetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxMetalViewController.swift; sourceTree = "<group>"; };
+		676C6449259594A900FC1865 /* reflection.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = reflection.metal; sourceTree = "<group>"; };
+		676C644F2595951E00FC1865 /* Monkey.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Monkey.mtl; sourceTree = "<group>"; };
 		67A4219F258DDABD006421C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		67A421A6258DDB3D006421C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		67A421B2258DE3AF006421C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -203,12 +209,14 @@
 			isa = PBXGroup;
 			children = (
 				67A421BD25900EFC006421C2 /* Models */,
+				676C64482595948500FC1865 /* Shaders */,
 				6717CD2925856AA200FC3C00 /* Info.plist */,
 				6717CD3D25856ADE00FC3C00 /* SampleSkybox.swift */,
 				6717CD722585B57800FC3C00 /* ShadingMethod.swift */,
 				6717CD5D2585B1C200FC3C00 /* SkyboxView.swift */,
 				6717CD692585B2EB00FC3C00 /* SkyboxSettingsView.swift */,
 				6717CD632585B24B00FC3C00 /* SkyboxMetalView.swift */,
+				676C6442259590A900FC1865 /* SkyboxMetalViewController.swift */,
 				6717CD3C25856ADE00FC3C00 /* SampleSkybox-Bridging-Header.h */,
 				6717CD7A2585BA7D00FC3C00 /* Storyboard.storyboard */,
 				67A4219E258DDABD006421C2 /* Localizable.strings */,
@@ -217,9 +225,18 @@
 			path = SampleSkybox;
 			sourceTree = "<group>";
 		};
+		676C64482595948500FC1865 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				676C6449259594A900FC1865 /* reflection.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		67A421BD25900EFC006421C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				676C644F2595951E00FC1865 /* Monkey.mtl */,
 				67A421BE25900F0C006421C2 /* Monkey.obj */,
 			);
 			path = Models;
@@ -379,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676C64502595951E00FC1865 /* Monkey.mtl in Resources */,
 				6717CD7B2585BA7D00FC3C00 /* Storyboard.storyboard in Resources */,
 				67A421B825900C7B006421C2 /* Assets.xcassets in Resources */,
 				67A421BF25900F0C006421C2 /* Monkey.obj in Resources */,
@@ -416,7 +434,9 @@
 			files = (
 				6717CD5E2585B1C200FC3C00 /* SkyboxView.swift in Sources */,
 				6717CD642585B24B00FC3C00 /* SkyboxMetalView.swift in Sources */,
+				676C6443259590A900FC1865 /* SkyboxMetalViewController.swift in Sources */,
 				6717CD3E25856ADE00FC3C00 /* SampleSkybox.swift in Sources */,
+				676C644A259594A900FC1865 /* reflection.metal in Sources */,
 				6717CD6A2585B2EB00FC3C00 /* SkyboxSettingsView.swift in Sources */,
 				6717CD732585B57800FC3C00 /* ShadingMethod.swift in Sources */,
 			);

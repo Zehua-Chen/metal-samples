@@ -7,13 +7,6 @@
 import Cocoa
 import SwiftUI
 
-internal class _SkyboxMetalViewController: NSViewController {
-  override func viewDidLoad() {
-    view.wantsLayer = true
-    view.layer?.backgroundColor = .white
-  }
-}
-
 internal struct _SkyboxMetalView: NSViewControllerRepresentable {
   typealias NSViewControllerType = _SkyboxMetalViewController
 
