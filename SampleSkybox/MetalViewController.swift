@@ -15,12 +15,12 @@ import OSLog
 internal class _MetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _logger: Logger = Logger.sample(category: "Skybox")
   fileprivate var _device: MTLDevice!
-  fileprivate var _mesh: MDLMesh!
-  fileprivate var _meshBufferAllocator: MTKMeshBufferAllocator!
   fileprivate var _renderPipelineState: MTLRenderPipelineState!
   fileprivate var _library: MTLLibrary!
   fileprivate var _viewport: MTLViewport = MTLViewport()
   fileprivate var _queue: MTLCommandQueue!
+
+  fileprivate var _assetManager: _AssetManager!
 
   override func viewDidLoad() {
     // MARK: View Configuration
@@ -61,28 +61,7 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
     }
 
     // MARK: Asset Loading
-    let bundle = SampleSkybox._bundle
-
-    _meshBufferAllocator = MTKMeshBufferAllocator(device: device)
-
-    guard let modelURL = bundle.url(forResource: "Monkey", withExtension: "obj") else {
-      _logger.error("Failed to locate Monkey.obj (\(#file):\(#line))")
-      return
-    }
-
-    let vertexDescriptor = MDLVertexDescriptor()
-    vertexDescriptor.addOrReplaceAttribute(
-      MDLVertexAttribute(name: "position", format: .float4, offset: 0, bufferIndex: 0))
-
-    let asset = MDLAsset(
-      url: modelURL, vertexDescriptor: vertexDescriptor, bufferAllocator: _meshBufferAllocator)
-
-    guard let mesh = asset.object(at: 0) as? MDLMesh else {
-      _logger.error("Failed to obtain mesh (\(#file):\(#line))")
-      return
-    }
-
-    _mesh = mesh
+    _assetManager = _AssetManager(device: device, bundle: SampleSkybox._bundle, logger: _logger)
   }
 
   // MARK: - MTKViewDelegate Conformance
