@@ -9,7 +9,7 @@ import SwiftUI
 /// A Metal Sample
 open class Sample: NSObject {
   static var _bundle: Bundle = Bundle(for: Sample.self)
-  
+
   /// Name of the sample
   ///
   /// **Optional**

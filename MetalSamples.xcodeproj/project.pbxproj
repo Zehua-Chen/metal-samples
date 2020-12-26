@@ -113,6 +113,7 @@
 		676C6442259590A900FC1865 /* SkyboxMetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxMetalViewController.swift; sourceTree = "<group>"; };
 		676C6449259594A900FC1865 /* reflection.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = reflection.metal; sourceTree = "<group>"; };
 		676C644F2595951E00FC1865 /* Monkey.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Monkey.mtl; sourceTree = "<group>"; };
+		676C64532595CB8800FC1865 /* shader_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader_data.h; sourceTree = "<group>"; };
 		67A4219F258DDABD006421C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		67A421A6258DDB3D006421C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		67A421B2258DE3AF006421C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				676C6449259594A900FC1865 /* reflection.metal */,
+				676C64532595CB8800FC1865 /* shader_data.h */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
