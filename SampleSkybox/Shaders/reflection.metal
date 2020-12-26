@@ -24,5 +24,5 @@ struct vertex_output {
 }
 
 [[fragment]] float4 reflection_fragment() {
-  return float4();
+  return float4(1, 1, 1, 1);
 }

@@ -19,6 +19,7 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _meshBufferAllocator: MTKMeshBufferAllocator!
   fileprivate var _renderPipelineState: MTLRenderPipelineState!
   fileprivate var _library: MTLLibrary!
+  fileprivate var _viewport: MTLViewport = MTLViewport()
 
   override func viewDidLoad() {
     // MARK: View Configuration
@@ -84,6 +85,8 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   // MARK: - MTKViewDelegate Conformance
 
   func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+    _viewport.height = Double(size.height)
+    _viewport.width = Double(size.width)
   }
 
   func draw(in view: MTKView) {
@@ -111,6 +114,9 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
       return
     }
 
+    renderCommandEncoder.label = "TeapotRenderEncoder"
+    renderCommandEncoder.setRenderPipelineState(_renderPipelineState)
+
     _draw(with: renderCommandEncoder)
 
     renderCommandEncoder.endEncoding()
@@ -122,11 +128,20 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   }
 
   fileprivate func _draw(with encoder: MTLRenderCommandEncoder) {
-    guard let vertexBuffer = _mesh.vertexBuffers[0] as? MTKMeshBuffer else {
-      _logger.error("Failed to obtain mesh buffer (\(#file):\(#line))")
-      return
-    }
+    encoder.setViewport(_viewport)
+//    guard let vertexBuffer = _mesh.vertexBuffers[0] as? MTKMeshBuffer else {
+//      _logger.error("Failed to obtain mesh buffer (\(#file):\(#line))")
+//      return
+//    }
+//
+//    encoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: Int(SkyboxTeapotVertex))
+    var numbers: [Float32] = [
+      -1, -1, 0.1, 1,
+      1, -1, 0.1, 1,
+      0, 1, 0.1, 1
+    ]
 
-    encoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: Int(SkyboxTeapotVertex))
+    encoder.setVertexBytes(&numbers, length: numbers.count * MemoryLayout<Float32>.size, index: Int(SkyboxTeapotVertex))
+    encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
   }
 }
