@@ -15,12 +15,12 @@ import OSLog
 internal class _MetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _logger: Logger = Logger.sample(category: "Skybox")
   fileprivate var _device: MTLDevice!
-  fileprivate var _renderPipelineState: MTLRenderPipelineState!
   fileprivate var _library: MTLLibrary!
   fileprivate var _viewport: MTLViewport = MTLViewport()
   fileprivate var _queue: MTLCommandQueue!
 
   fileprivate var _assetManager: _AssetManager!
+  fileprivate var _monkeyRenderer: _MonkeyRenderer!
 
   override func viewDidLoad() {
     // MARK: View Configuration
@@ -47,21 +47,15 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
       return
     }
 
+    // MARK: Asset Loading
     do {
-      let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
-      renderPipelineDescriptor.vertexFunction = _library.makeFunction(name: "reflection_vertex")
-      renderPipelineDescriptor.fragmentFunction = _library.makeFunction(name: "reflection_fragment")
-      renderPipelineDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat
-
-      _renderPipelineState = try device.makeRenderPipelineState(
-        descriptor: renderPipelineDescriptor)
+      _assetManager = _AssetManager(device: device, logger: _logger)
+      _monkeyRenderer = try _MonkeyRenderer(
+        view: mtkView, library: _library, assetManager: _assetManager)
     } catch {
-      _logger.error("Failed to create render pipeline state (\(#file):\(#line))")
+      _logger.error("\(error.localizedDescription) (\(#file):\(#line))")
       return
     }
-
-    // MARK: Asset Loading
-    _assetManager = _AssetManager(device: device, bundle: SampleSkybox._bundle, logger: _logger)
   }
 
   // MARK: - MTKViewDelegate Conformance
@@ -72,8 +66,6 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
   }
 
   func draw(in view: MTKView) {
-//    guard let device = view.device else { fatalError("Failed to obtain device") }
-
     guard let commandBuffer = _queue.makeCommandBuffer() else {
       _logger.error("Failed to create command buffer (\(#file):\(#line))")
       return
@@ -92,10 +84,7 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
       return
     }
 
-    renderCommandEncoder.label = "TeapotRenderEncoder"
-    renderCommandEncoder.setRenderPipelineState(_renderPipelineState)
-
-    _draw(with: renderCommandEncoder)
+    _monkeyRenderer.draw(using: renderCommandEncoder, in: _viewport)
 
     renderCommandEncoder.endEncoding()
 
@@ -103,23 +92,5 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
 
     commandBuffer.present(drawable)
     commandBuffer.commit()
-  }
-
-  fileprivate func _draw(with encoder: MTLRenderCommandEncoder) {
-    encoder.setViewport(_viewport)
-//    guard let vertexBuffer = _mesh.vertexBuffers[0] as? MTKMeshBuffer else {
-//      _logger.error("Failed to obtain mesh buffer (\(#file):\(#line))")
-//      return
-//    }
-//
-//    encoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: Int(SkyboxTeapotVertex))
-    var numbers: [Float32] = [
-      -1, -1, 0.1, 1,
-      1, -1, 0.1, 1,
-      0, 1, 0.1, 1
-    ]
-
-    encoder.setVertexBytes(&numbers, length: numbers.count * MemoryLayout<Float32>.size, index: Int(SkyboxTeapotVertex))
-    encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
   }
 }

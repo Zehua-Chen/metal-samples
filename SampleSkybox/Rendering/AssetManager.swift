@@ -15,12 +15,12 @@ internal class _AssetManager {
   internal var logger: Logger
   internal var monkeyMesh: MDLMesh?
 
-  init(device: MTLDevice, bundle: Bundle, logger: Logger) {
+  init(device: MTLDevice, logger: Logger) {
     self.device = device
     self.logger = logger
     self.meshBufferAllocator = MTKMeshBufferAllocator(device: device)
 
-    guard let modelURL = bundle.url(forResource: "Monkey", withExtension: "obj") else {
+    guard let modelURL = SampleSkybox._bundle.url(forResource: "Monkey", withExtension: "obj") else {
       logger.error("Failed to locate Monkey.obj (\(#file):\(#line))")
       return
     }
