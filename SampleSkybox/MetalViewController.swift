@@ -12,7 +12,7 @@ import ModelIO
 import SampleKit
 import OSLog
 
-internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
+internal class _MetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _logger: Logger = Logger.sample(category: "Skybox")
   fileprivate var _device: MTLDevice!
   fileprivate var _mesh: MDLMesh!
@@ -20,6 +20,7 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _renderPipelineState: MTLRenderPipelineState!
   fileprivate var _library: MTLLibrary!
   fileprivate var _viewport: MTLViewport = MTLViewport()
+  fileprivate var _queue: MTLCommandQueue!
 
   override func viewDidLoad() {
     // MARK: View Configuration
@@ -37,6 +38,8 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
     mtkView.device = device
 
     // MARK: Metal Configuration
+    _queue = device.makeCommandQueue()
+
     do {
       _library = try device.makeDefaultLibrary(bundle: SampleSkybox._bundle)
     } catch {
@@ -90,13 +93,9 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   }
 
   func draw(in view: MTKView) {
-    guard let device = view.device else { fatalError("Failed to obtain device") }
-    guard let queue = device.makeCommandQueue() else {
-      _logger.error("Failed to create command queue (\(#file):\(#line))")
-      return
-    }
+//    guard let device = view.device else { fatalError("Failed to obtain device") }
 
-    guard let commandBuffer = queue.makeCommandBuffer() else {
+    guard let commandBuffer = _queue.makeCommandBuffer() else {
       _logger.error("Failed to create command buffer (\(#file):\(#line))")
       return
     }

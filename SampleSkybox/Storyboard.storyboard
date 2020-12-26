@@ -5,10 +5,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Skybox Metal View Controller-->
+        <!--Metal View Controller-->
         <scene sceneID="fAB-36-Bzr">
             <objects>
-                <viewController storyboardIdentifier="SkyboxMetalViewController" id="Zy5-w6-fcg" customClass="_SkyboxMetalViewController" customModule="SampleSkybox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SkyboxMetalViewController" id="Zy5-w6-fcg" customClass="_MetalViewController" customModule="SampleSkybox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="8oo-qh-pks" customClass="MTKView">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

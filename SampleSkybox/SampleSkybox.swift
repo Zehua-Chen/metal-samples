@@ -25,6 +25,6 @@ public class SampleSkybox: Sample {
   }
 
   public override var body: AnyView {
-    return AnyView(_SkyboxView())
+    return AnyView(_BodyView())
   }
 }

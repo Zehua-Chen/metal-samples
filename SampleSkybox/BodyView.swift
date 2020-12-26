@@ -8,15 +8,15 @@
 import SampleKit
 import SwiftUI
 
-internal struct _SkyboxView: View {
+internal struct _BodyView: View {
   @State
   var shadingMethod: _ShadingMethod = .reflection
 
   var body: some View {
     SamplePresentation {
-      _SkyboxMetalView()
+      _MetalView()
     } settings: {
-      _SkyboxSettingsView(shadingMethod: $shadingMethod)
+      _SettingsView(shadingMethod: $shadingMethod)
     }
   }
 }
