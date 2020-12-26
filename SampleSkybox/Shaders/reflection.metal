@@ -14,10 +14,15 @@ struct vertex_output {
   float4 position [[position]];
 };
 
-[[vertex]] vertex_output vertex_func() {
-  return vertex_output{};
+[[vertex]] vertex_output reflection_vertex(
+    uint vertex_id [[vertex_id]],
+    constant float4 *vertices [[buffer(SkyboxTeapotVertex)]]) {
+  vertex_output output;
+  output.position = vertices[vertex_id];
+
+  return output;
 }
 
-[[fragment]] float4 fragment_func() {
+[[fragment]] float4 reflection_fragment() {
   return float4();
 }

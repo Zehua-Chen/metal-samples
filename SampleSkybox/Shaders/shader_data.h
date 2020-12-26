@@ -9,7 +9,16 @@
 #define shader_data_h
 
 typedef struct {
+} skybox_teapot_vertex;
 
-} vertex_input;
+typedef struct {
+} skybox_camera;
+
+typedef struct {
+} skybox_teapot_transform;
+
+#define SkyboxCamera 0
+#define SkyboxTeapotTransform 1
+#define SkyboxTeapotVertex 2
 
 #endif /* shader_data_h */

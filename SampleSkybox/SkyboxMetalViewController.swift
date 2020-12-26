@@ -9,37 +9,73 @@ import AppKit
 import Metal
 import MetalKit
 import ModelIO
+import SampleKit
+import OSLog
 
 internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
+  fileprivate var _logger: Logger = Logger.sample(category: "Skybox")
   fileprivate var _device: MTLDevice!
   fileprivate var _mesh: MDLMesh!
   fileprivate var _meshBufferAllocator: MTKMeshBufferAllocator!
+  fileprivate var _renderPipelineState: MTLRenderPipelineState!
+  fileprivate var _library: MTLLibrary!
 
   override func viewDidLoad() {
     // MARK: View Configuration
     guard let mtkView = view as? MTKView else {
-      fatalError("Root view is not MTKView")
+      _logger.error("Root view is not MTKView (\(#file):\(#line))")
+      return
     }
 
-    guard let device = mtkView.preferredDevice else { fatalError("Failed to obtain device") }
+    guard let device = mtkView.preferredDevice else {
+      _logger.error("Failed to obtain device (\(#file):\(#line))")
+      return
+    }
 
     mtkView.delegate = self
     mtkView.device = device
 
     // MARK: Metal Configuration
-    _meshBufferAllocator = MTKMeshBufferAllocator(device: device)
-    let bundle = SampleSkybox._bundle
-
-    // MARK: Asset Loading
-    guard let modelURL = bundle.url(forResource: "Monkey", withExtension: "obj") else {
-      fatalError("Failed to locate Monkey.obj")
+    do {
+      _library = try device.makeDefaultLibrary(bundle: SampleSkybox._bundle)
+    } catch {
+      _logger.error("Failed to create library (\(#file):\(#line))")
+      return
     }
 
+    do {
+      let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+      renderPipelineDescriptor.vertexFunction = _library.makeFunction(name: "reflection_vertex")
+      renderPipelineDescriptor.fragmentFunction = _library.makeFunction(name: "reflection_fragment")
+      renderPipelineDescriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat
+
+      _renderPipelineState = try device.makeRenderPipelineState(
+        descriptor: renderPipelineDescriptor)
+    } catch {
+      _logger.error("Failed to create render pipeline state (\(#file):\(#line))")
+      return
+    }
+
+    // MARK: Asset Loading
+    let bundle = SampleSkybox._bundle
+
+    _meshBufferAllocator = MTKMeshBufferAllocator(device: device)
+
+    guard let modelURL = bundle.url(forResource: "Monkey", withExtension: "obj") else {
+      _logger.error("Failed to locate Monkey.obj (\(#file):\(#line))")
+      return
+    }
+
+    let vertexDescriptor = MDLVertexDescriptor()
+    vertexDescriptor.addOrReplaceAttribute(
+      MDLVertexAttribute(name: "position", format: .float4, offset: 0, bufferIndex: 0))
+
     let asset = MDLAsset(
-      url: modelURL, vertexDescriptor: nil, bufferAllocator: _meshBufferAllocator)
+      url: modelURL, vertexDescriptor: vertexDescriptor, bufferAllocator: _meshBufferAllocator)
 
     guard let mesh = asset.object(at: 0) as? MDLMesh else {
-      fatalError("Failed to obtain mesh")
+      _logger.error("Failed to obtain mesh (\(#file):\(#line))")
+      return
     }
 
     _mesh = mesh
@@ -53,18 +89,44 @@ internal class _SkyboxMetalViewController: NSViewController, MTKViewDelegate {
   func draw(in view: MTKView) {
     guard let device = view.device else { fatalError("Failed to obtain device") }
     guard let queue = device.makeCommandQueue() else {
-      fatalError("Failed to create command queue")
-    }
-    guard let commandBuffer = queue.makeCommandBuffer() else {
-      fatalError("Failed to create command buffer")
+      _logger.error("Failed to create command queue (\(#file):\(#line))")
+      return
     }
 
-    //    let renderPassDescriptor = MTLRenderPassDescriptor()
+    guard let commandBuffer = queue.makeCommandBuffer() else {
+      _logger.error("Failed to create command buffer (\(#file):\(#line))")
+      return
+    }
+
+    guard let renderPassDescriptor = view.currentRenderPassDescriptor else {
+      _logger.error("Failed to obtain current render pass descriptor (\(#file):\(#line))")
+      return
+    }
+
+    guard
+      let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(
+        descriptor: renderPassDescriptor)
+    else {
+      _logger.error("Failed to create render pass encoder (\(#file):\(#line))")
+      return
+    }
+
+    _draw(with: renderCommandEncoder)
+
+    renderCommandEncoder.endEncoding()
 
     guard let drawable = view.currentDrawable else { fatalError("Failed to obtain drawablw") }
 
     commandBuffer.present(drawable)
     commandBuffer.commit()
+  }
 
+  fileprivate func _draw(with encoder: MTLRenderCommandEncoder) {
+    guard let vertexBuffer = _mesh.vertexBuffers[0] as? MTKMeshBuffer else {
+      _logger.error("Failed to obtain mesh buffer (\(#file):\(#line))")
+      return
+    }
+
+    encoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: Int(SkyboxTeapotVertex))
   }
 }

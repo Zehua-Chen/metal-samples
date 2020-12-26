@@ -10,11 +10,11 @@ import OSLog
 extension Logger {
   fileprivate static let _identifier: String = Bundle.main.bundleIdentifier ?? "MetalSamples"
 
-  public static func sampleSystem(for category: String) -> Logger {
+  public static func sampleSystem(category: String) -> Logger {
     return .init(subsystem: "\(_identifier).SampleSystem", category: category)
   }
 
-  public static func sample(for category: String) -> Logger {
+  public static func sample(category: String) -> Logger {
     return .init(subsystem: "\(_identifier).Sample", category: category)
   }
 }

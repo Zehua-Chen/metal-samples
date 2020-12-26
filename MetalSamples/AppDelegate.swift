@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var sample: CurrentValueSubject<Sample?, Never> = CurrentValueSubject<Sample?, Never>(nil)
 
   lazy var samples: [Sample] = {
-    let logger = Logger.sampleSystem(for: "Loading")
+    let logger = Logger.sampleSystem(category: "Loading")
 
     do {
       return try Samples.load(from: .main, logger: logger)
