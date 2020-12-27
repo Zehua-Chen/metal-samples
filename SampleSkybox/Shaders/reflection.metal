@@ -16,13 +16,15 @@ struct vertex_output {
 
 [[vertex]] vertex_output reflection_vertex(
     uint vertex_id [[vertex_id]],
-    constant float4 *vertices [[buffer(SkyboxTeapotVertex)]]) {
+    constant float4 *vertices [[buffer(SkyboxTeapotVertexIndex)]],
+    constant skybox_camera *camera [[buffer(SkyboxCameraIndex)]],
+    constant skybox_teapot_transform *transform [[buffer(SkyboxTeapotTransformIndex)]]) {
   vertex_output output;
-  output.position = vertices[vertex_id];
+  output.position = camera->projection * camera->view * transform->transform * vertices[vertex_id];
 
   return output;
 }
 
-[[fragment]] float4 reflection_fragment() {
-  return float4(1, 1, 1, 1);
+[[fragment]] float4 reflection_fragment(vertex_output output [[stage_in]]) {
+  return output.position;
 }
