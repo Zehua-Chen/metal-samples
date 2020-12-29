@@ -21,7 +21,7 @@ class SampleViewController: NSViewController {
     super.viewDidLoad()
 
     view.widthAnchor.constraint(greaterThanOrEqualToConstant: 450).isActive = true
-    view.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
+    view.heightAnchor.constraint(greaterThanOrEqualToConstant: 450).isActive = true
 
     _appDelegate = (NSApplication.shared.delegate as! AppDelegate)
     _appDelegate.sample.sink { [unowned self] sample in
