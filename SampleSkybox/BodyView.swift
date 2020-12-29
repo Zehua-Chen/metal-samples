@@ -12,11 +12,14 @@ internal struct _BodyView: View {
   @State
   var shadingMethod: _ShadingMethod = .reflection
 
+  @State
+  var rotationY: Float32 = 0
+
   var body: some View {
     SamplePresentation {
-      _MetalView()
+      _MetalView(rotationY: rotationY)
     } settings: {
-      _SettingsView(shadingMethod: $shadingMethod)
+      _SettingsView(shadingMethod: $shadingMethod, rotationY: $rotationY)
     }
   }
 }

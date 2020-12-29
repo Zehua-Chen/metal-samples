@@ -20,7 +20,14 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
   fileprivate var _queue: MTLCommandQueue!
 
   fileprivate var _assetManager: _AssetManager!
+  fileprivate var _settingsManager: _SettingsManager!
   fileprivate var _monkeyRenderer: _MonkeyRenderer!
+
+  var rotationY: Float32 = 0 {
+    didSet {
+      _settingsManager.rotationY = rotationY
+    }
+  }
 
   override func viewDidLoad() {
     // MARK: View Configuration
@@ -37,6 +44,8 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
     mtkView.delegate = self
     mtkView.device = device
 
+    mtkView.depthStencilPixelFormat = .depth32Float
+
     // MARK: Metal Configuration
     _queue = device.makeCommandQueue()
 
@@ -50,8 +59,13 @@ internal class _MetalViewController: NSViewController, MTKViewDelegate {
     // MARK: Asset Loading
     do {
       _assetManager = _AssetManager(device: device, logger: _logger)
+      _settingsManager = _SettingsManager()
+
       _monkeyRenderer = try _MonkeyRenderer(
-        view: mtkView, library: _library, assetManager: _assetManager)
+        view: mtkView,
+        library: _library,
+        assetManager: _assetManager,
+        settingsManager: _settingsManager)
     } catch {
       _logger.error("\(error.localizedDescription) (\(#file):\(#line))")
       return

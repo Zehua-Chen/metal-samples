@@ -11,8 +11,8 @@ internal struct _SettingsView: View {
   @Binding
   var shadingMethod: _ShadingMethod
 
-  @State
-  var y: Float = 0
+  @Binding
+  var rotationY: Float32
 
   var body: some View {
     Form {
@@ -25,7 +25,7 @@ internal struct _SettingsView: View {
       }
 
       Slider(
-        value: $y,
+        value: $rotationY,
         in: 0...360.0,
         minimumValueLabel: Text("0"),
         maximumValueLabel: Text("360")

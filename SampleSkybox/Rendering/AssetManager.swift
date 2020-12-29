@@ -25,8 +25,13 @@ internal class _AssetManager {
       return
     }
 
+    let monkeyVertexDiscriptor = MDLVertexDescriptor()
+
+    monkeyVertexDiscriptor.addOrReplaceAttribute(
+      MDLVertexAttribute(name: "vertex", format: .float4, offset: 0, bufferIndex: 0))
+
     let monkeyAsset = MDLAsset(
-      url: modelURL, vertexDescriptor: nil, bufferAllocator: meshBufferAllocator)
+      url: modelURL, vertexDescriptor: monkeyVertexDiscriptor, bufferAllocator: meshBufferAllocator)
 
     guard let monkeyMesh = monkeyAsset.object(at: 0) as? MDLMesh else {
       logger.error("Failed to obtain mesh (\(#file):\(#line))")

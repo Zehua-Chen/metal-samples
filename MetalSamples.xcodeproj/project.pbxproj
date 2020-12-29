@@ -22,6 +22,7 @@
 		6717CD8A2585BEE000FC3C00 /* SamplePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6717CD892585BEE000FC3C00 /* SamplePresentation.swift */; };
 		674847C12596D06200F2A05F /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674847C02596D06200F2A05F /* AssetManager.swift */; };
 		674847CB2596D18200F2A05F /* MonkeyRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674847CA2596D18200F2A05F /* MonkeyRenderer.swift */; };
+		674847D125984EFD00F2A05F /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674847D025984EFD00F2A05F /* SettingsManager.swift */; };
 		676C6443259590A900FC1865 /* MetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676C6442259590A900FC1865 /* MetalViewController.swift */; };
 		676C644A259594A900FC1865 /* reflection.metal in Sources */ = {isa = PBXBuildFile; fileRef = 676C6449259594A900FC1865 /* reflection.metal */; };
 		676C64502595951E00FC1865 /* Monkey.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 676C644F2595951E00FC1865 /* Monkey.mtl */; };
@@ -114,6 +115,7 @@
 		6717CD892585BEE000FC3C00 /* SamplePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePresentation.swift; sourceTree = "<group>"; };
 		674847C02596D06200F2A05F /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		674847CA2596D18200F2A05F /* MonkeyRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyRenderer.swift; sourceTree = "<group>"; };
+		674847D025984EFD00F2A05F /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		676C6442259590A900FC1865 /* MetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalViewController.swift; sourceTree = "<group>"; };
 		676C6449259594A900FC1865 /* reflection.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = reflection.metal; sourceTree = "<group>"; };
 		676C644F2595951E00FC1865 /* Monkey.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Monkey.mtl; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				674847C02596D06200F2A05F /* AssetManager.swift */,
+				674847D025984EFD00F2A05F /* SettingsManager.swift */,
 				674847CA2596D18200F2A05F /* MonkeyRenderer.swift */,
 			);
 			path = Rendering;
@@ -454,6 +457,7 @@
 				676C6443259590A900FC1865 /* MetalViewController.swift in Sources */,
 				674847CB2596D18200F2A05F /* MonkeyRenderer.swift in Sources */,
 				6717CD3E25856ADE00FC3C00 /* SampleSkybox.swift in Sources */,
+				674847D125984EFD00F2A05F /* SettingsManager.swift in Sources */,
 				676C644A259594A900FC1865 /* reflection.metal in Sources */,
 				6717CD6A2585B2EB00FC3C00 /* SettingsView.swift in Sources */,
 				6717CD732585B57800FC3C00 /* ShadingMethod.swift in Sources */,
