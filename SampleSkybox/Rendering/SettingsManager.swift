@@ -6,8 +6,6 @@
 //
 import MetalMath
 
-
-
 internal class _SettingsManager {
   var rotationY: Float32 = 0
   let target: SIMD4<Float32> = [0, 0, 0, 1]
