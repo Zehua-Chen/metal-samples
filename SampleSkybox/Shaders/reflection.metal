@@ -20,7 +20,7 @@ struct vertex_output {
     constant skybox_camera *camera [[buffer(SkyboxCameraIndex)]],
     constant skybox_teapot_transform *transform [[buffer(SkyboxTeapotTransformIndex)]]) {
   vertex_output output;
-  output.position = camera->projection * camera->view * transform->transform * vertices[vertex_id];
+  output.position = camera->projection * camera->look_at * transform->transform * vertices[vertex_id];
 
   return output;
 }

@@ -56,7 +56,7 @@ internal class _MonkeyRenderer {
 
   fileprivate var _transform: skybox_teapot_transform = .init(transform: matrix_identity_float4x4)
   fileprivate var _camera: skybox_camera = .init(
-    view: matrix_identity_float4x4,
+    look_at: matrix_identity_float4x4,
     projection: matrix_identity_float4x4)
 
   init(
@@ -97,7 +97,7 @@ internal class _MonkeyRenderer {
 
   func draw(using encoder: MTLRenderCommandEncoder, in viewport: MTLViewport) {
     // MARK: Update Settings
-    _camera.view = settingsManager.view
+    _camera.look_at = settingsManager.lookAt
     _camera.projection = settingsManager.projection
 
     // MARK: Render

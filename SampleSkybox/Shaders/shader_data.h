@@ -18,7 +18,7 @@ typedef struct {
 } skybox_teapot_vertex;
 
 typedef struct {
-  simd_float4x4 view;
+  simd_float4x4 look_at;
   simd_float4x4 projection;
 } skybox_camera;
 
